@@ -31,23 +31,24 @@ Followed the Tutorial in https://learn.chef.io/tutorials/local-development/
 Choose `Red Hat Enterprise Linux >>`
 Then `Vagrant and VirtualBox >>`
 
-### 
-If you faced any issue while 
+
+### Needed commands 
+#### Login to machines 
+`knife ssh {machine-ip} --ssh-port 22 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file {pem-file path}/private_key --node-name node1-centos`
+
+### bootstrap node 
+`knife bootstrap {machine-ip} --ssh-port 22 --ssh-user vagrant --sudo --identity-file {pem-file path}/private_key --node-name node1-centos --run-list 'recipe[learn_chef_httpd]'`
+
+Node node1-centos exists, overwrite it? (Y/N) y
+Client node1-centos exists, overwrite it? (Y/N) y
+
+### Faced Problems 
+If you faced any issue while installation specially connection errror login to server 
 `sudo chef-server-ctl cleanse`
-
-echo "127.0.0.1 localhost" | tee -a /etc/hosts
-
-knife bootstrap localhost --ssh-port 22 --ssh-user vagrant --sudo --identity-file E:/SourceCode/Assignment/.vagrant/machines/node1-centos/vmware_workstation/private_key --node-name node1-centos --run-list 'recipe[learn_chef_apache2]'
-knife bootstrap 192.168.64.149 --ssh-port 22 --ssh-user vagrant --sudo --identity-file E:/SourceCode/Assignment/.vagrant/machines/node1-centos/virtualbox/private_key --node-name node1-centos --run-list 'recipe[learn_chef_httpd]'
-y
-y
-vagrant
-
-knife ssh 192.168.64.149 --ssh-port 22 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file E:/SourceCode/Assignment/.vagrant/machines/node1-centos/vmware_workstation/private_key --node-name node1-centos
 
 ## Prepare Enviroment 
 ###Windows 
 Check reference 1
 
 ##REFERENCES
-1. https://learn.chef.io/tutorials/learn-the-basics/rhel/virtualbox/set-up-a-machine-to-manage/
+1. `https://learn.chef.io/tutorials/learn-the-basics/rhel/virtualbox/set-up-a-machine-to-manage/`

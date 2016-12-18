@@ -24,12 +24,24 @@ Navigate to root
 Node node1-centos exists, overwrite it? (Y/N) y
 Client node1-centos exists, overwrite it? (Y/N) y
 
+
+## Develop locally 
+### Apply the awesome_customers_rhel cookbook on a Test Kitchen instance
+`kitchen list`
+
+`berks install`
+
+every time you do change you should call  
+`kitchen converge`
+
+`kitchen login`
+
 ## How to Develop Simillar project  
-Followed the Tutorial in https://learn.chef.io/manage-a-web-app/
+Followed the Tutorial in `https://learn.chef.io/manage-a-web-app/`
 Choose `Red Hat Enterprise Linux >>`
 then Follow the steps 
 
 
 
-
+## References 
 https://learn.chef.io/manage-a-web-app/rhel/configure-php/
